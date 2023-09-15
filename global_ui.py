@@ -77,10 +77,19 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         if self.rtsn_window.rBtn_stator.isChecked():
             self.row_type = "SB"
 
-    def create_cells(self, section_number = int()):
+    def create_input_cells(self, section_number = int()):
         input_list = list()
         for i in range(section_number):
             input_list.append(QtWidgets.QLineEdit())
+            input_list[i].setMinimumSize(QtCore.QSize(51, 21))
+            input_list[i].setMaximumSize(QtCore.QSize(51, 21))
+        return input_list
+
+    def create_output_cells(self, section_number = int()):
+        input_list = list()
+        for i in range(section_number):
+            input_list.append(QtWidgets.QLineEdit())
+            input_list[i].setReadOnly(True)
             input_list[i].setMinimumSize(QtCore.QSize(51, 21))
             input_list[i].setMaximumSize(QtCore.QSize(51, 21))
         return input_list
@@ -90,13 +99,59 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         self.setWindowTitle("second window")
         self.setCentralWidget(self.prmt_window)
 
-        self.inlet_angle_cells = self.create_cells(self.number_of_sections)
-        self.outlet_angle_cells = self.create_cells(self.number_of_sections)
+        # add cells to input data
+        self.inlet_angle_cells = self.create_input_cells(self.number_of_sections)
+        self.outlet_angle_cells = self.create_input_cells(self.number_of_sections)
+        self.le_radius_cells = self.create_input_cells(self.number_of_sections)
+        self.te_radius_cells = self.create_input_cells(self.number_of_sections)
+        self.chord_cells = self.create_input_cells(self.number_of_sections)
+        self.cmax_cells = self.create_input_cells(self.number_of_sections)
+        self.cmax_position_cells = self.create_input_cells(self.number_of_sections)
+        self.front_camber_angle_cells = self.create_input_cells(self.number_of_sections)
+        self.radius_at_le_cells = self.create_input_cells(self.number_of_sections)
+        self.radius_at_te_cells = self.create_input_cells(self.number_of_sections)
+        self.restagger_section_cells = self.create_input_cells(self.number_of_sections)
+        self.theta_displ_cells = self.create_input_cells(self.number_of_sections)
+        self.axial_displ_cells = self.create_input_cells(self.number_of_sections)
 
+        # add cells to output data
+        self.stagger_angle_cells = self.create_output_cells(self.number_of_sections)
+        self.axial_chord_cells = self.create_output_cells(self.number_of_sections)
+        self.camber_angle_cells = self.create_output_cells(self.number_of_sections)
+        self.le_we_angle_cells = self.create_output_cells(self.number_of_sections)
+        self.te_we_angle_cells = self.create_output_cells(self.number_of_sections)
+        self.max_thickness_cells = self.create_output_cells(self.number_of_sections)
+        self.throat_cells = self.create_output_cells(self.number_of_sections)
+        self.solidity_cells = self.create_output_cells(self.number_of_sections)
+        self.camber_ratio_cells = self.create_output_cells(self.number_of_sections)
+        self.sect_area_cells = self.create_output_cells(self.number_of_sections)
 
+        # add cells to window
         for i in range(self.number_of_sections):
             self.prmt_window.hLayout_inlet_angle.addWidget(self.inlet_angle_cells[i])
             self.prmt_window.hLayout_outlet_angle.addWidget(self.outlet_angle_cells[i])
+            self.prmt_window.hLayout_le_rad.addWidget(self.le_radius_cells[i])
+            self.prmt_window.hLayout_te_rad.addWidget(self.te_radius_cells[i])
+            self.prmt_window.hLayout_chord.addWidget(self.chord_cells[i])
+            self.prmt_window.hLayout_cmax.addWidget(self.cmax_cells[i])
+            self.prmt_window.hLayout_cmax_pos.addWidget(self.cmax_position_cells[i])
+            self.prmt_window.hLayout_front_camber_angle.addWidget(self.front_camber_angle_cells[i])
+            self.prmt_window.hLayout_rad_at_le.addWidget(self.radius_at_le_cells[i])
+            self.prmt_window.hLayout_rad_at_te.addWidget(self.radius_at_te_cells[i])
+            self.prmt_window.hLayout_restagger_sect.addWidget(self.restagger_section_cells[i])
+            self.prmt_window.hLayout_theta_displ.addWidget(self.theta_displ_cells[i])
+            self.prmt_window.hLayout_axial_displ.addWidget(self.axial_displ_cells[i])
+
+            self.prmt_window.hLayout_stagger_angle.addWidget(self.stagger_angle_cells[i])
+            self.prmt_window.hLayout_axial_chord.addWidget(self.axial_chord_cells[i])
+            self.prmt_window.hLayout_camber_angle.addWidget(self.camber_angle_cells[i])
+            self.prmt_window.hLayout_le_we_ang.addWidget(self.le_we_angle_cells[i])
+            self.prmt_window.hLayout_te_we_ang.addWidget(self.te_we_angle_cells[i])
+            self.prmt_window.hLayout_value_cmax.addWidget(self.max_thickness_cells[i])
+            self.prmt_window.hLayout_throat.addWidget(self.throat_cells[i])
+            self.prmt_window.hLayout_solidity.addWidget(self.solidity_cells[i])
+            self.prmt_window.hLayout_camber_ratio.addWidget(self.camber_ratio_cells[i])
+            self.prmt_window.hLayout_section_area.addWidget(self.sect_area_cells[i])
 
         self.prmt_window.btnCheck.clicked.connect(self.check_btn_params_window)
 

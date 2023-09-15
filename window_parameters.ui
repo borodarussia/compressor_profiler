@@ -84,7 +84,7 @@
        </layout>
       </item>
       <item>
-       <layout class="QHBoxLayout" name="horizontalLayout_7">
+       <layout class="QHBoxLayout" name="hLayout_le_rad">
         <item>
          <widget class="QLabel" name="label_3">
           <property name="minimumSize">
@@ -107,7 +107,7 @@
        </layout>
       </item>
       <item>
-       <layout class="QHBoxLayout" name="horizontalLayout_6">
+       <layout class="QHBoxLayout" name="hLayout_te_rad">
         <item>
          <widget class="QLabel" name="label_4">
           <property name="minimumSize">
@@ -130,7 +130,7 @@
        </layout>
       </item>
       <item>
-       <layout class="QHBoxLayout" name="horizontalLayout_5">
+       <layout class="QHBoxLayout" name="hLayout_chord">
         <item>
          <widget class="QLabel" name="label_5">
           <property name="minimumSize">
@@ -153,7 +153,7 @@
        </layout>
       </item>
       <item>
-       <layout class="QHBoxLayout" name="horizontalLayout_4">
+       <layout class="QHBoxLayout" name="hLayout_cmax">
         <item>
          <widget class="QLabel" name="label_6">
           <property name="minimumSize">
@@ -176,7 +176,7 @@
        </layout>
       </item>
       <item>
-       <layout class="QHBoxLayout" name="horizontalLayout_2">
+       <layout class="QHBoxLayout" name="hLayout_cmax_pos">
         <item>
          <widget class="QLabel" name="label_7">
           <property name="minimumSize">
@@ -199,7 +199,7 @@
        </layout>
       </item>
       <item>
-       <layout class="QHBoxLayout" name="horizontalLayout_3">
+       <layout class="QHBoxLayout" name="hLayout_front_camber_angle">
         <item>
          <widget class="QLabel" name="label_8">
           <property name="minimumSize">
@@ -215,14 +215,14 @@
            </size>
           </property>
           <property name="text">
-           <string>front camber angle</string>
+           <string>front camber angle, deg</string>
           </property>
          </widget>
         </item>
        </layout>
       </item>
       <item>
-       <layout class="QHBoxLayout" name="horizontalLayout_16">
+       <layout class="QHBoxLayout" name="hLayout_rad_at_le">
         <item>
          <widget class="QLabel" name="label_9">
           <property name="minimumSize">
@@ -245,7 +245,7 @@
        </layout>
       </item>
       <item>
-       <layout class="QHBoxLayout" name="horizontalLayout_15">
+       <layout class="QHBoxLayout" name="hLayout_rad_at_te">
         <item>
          <widget class="QLabel" name="label_10">
           <property name="minimumSize">
@@ -268,7 +268,7 @@
        </layout>
       </item>
       <item>
-       <layout class="QHBoxLayout" name="horizontalLayout_14">
+       <layout class="QHBoxLayout" name="hLayout_restagger_sect">
         <item>
          <widget class="QLabel" name="label_11">
           <property name="minimumSize">
@@ -291,7 +291,7 @@
        </layout>
       </item>
       <item>
-       <layout class="QHBoxLayout" name="horizontalLayout_13">
+       <layout class="QHBoxLayout" name="hLayout_restagger_blade" stretch="1,1">
         <item>
          <widget class="QLabel" name="label_12">
           <property name="minimumSize">
@@ -311,10 +311,20 @@
           </property>
          </widget>
         </item>
+        <item>
+         <widget class="QLineEdit" name="lineEdit_blade_restagger_angle">
+          <property name="maximumSize">
+           <size>
+            <width>150</width>
+            <height>21</height>
+           </size>
+          </property>
+         </widget>
+        </item>
        </layout>
       </item>
       <item>
-       <layout class="QHBoxLayout" name="horizontalLayout_12">
+       <layout class="QHBoxLayout" name="hLayout_theta_displ">
         <item>
          <widget class="QLabel" name="label_13">
           <property name="minimumSize">
@@ -337,7 +347,7 @@
        </layout>
       </item>
       <item>
-       <layout class="QHBoxLayout" name="horizontalLayout_11">
+       <layout class="QHBoxLayout" name="hLayout_axial_displ">
         <item>
          <widget class="QLabel" name="label_14">
           <property name="minimumSize">
@@ -360,7 +370,7 @@
        </layout>
       </item>
       <item>
-       <layout class="QHBoxLayout" name="horizontalLayout_17" stretch="1,1">
+       <layout class="QHBoxLayout" name="hLayout_axial_pos" stretch="1,1">
         <item>
          <widget class="QLabel" name="label_15">
           <property name="minimumSize">
@@ -381,7 +391,7 @@
          </widget>
         </item>
         <item>
-         <widget class="QLineEdit" name="lineEdit">
+         <widget class="QLineEdit" name="lineEdit_blade_axial_pos">
           <property name="maximumSize">
            <size>
             <width>150</width>
@@ -393,7 +403,7 @@
        </layout>
       </item>
       <item>
-       <layout class="QHBoxLayout" name="horizontalLayout_25">
+       <layout class="QHBoxLayout" name="hLayout_blade_num" stretch="1,1">
         <item>
          <widget class="QLabel" name="label_26">
           <property name="minimumSize">
@@ -414,7 +424,7 @@
          </widget>
         </item>
         <item>
-         <widget class="QLineEdit" name="lineEdit_2">
+         <widget class="QLineEdit" name="lineEdit_blade_num">
           <property name="minimumSize">
            <size>
             <width>150</width>
@@ -436,12 +446,12 @@
     <item>
      <layout class="QVBoxLayout" name="verticalLayout_2">
       <item>
-       <layout class="QHBoxLayout" name="horizontalLayout_10"/>
+       <layout class="QHBoxLayout" name="hLayout_plot_out"/>
       </item>
       <item>
        <layout class="QVBoxLayout" name="verticalLayout_3">
         <item>
-         <layout class="QHBoxLayout" name="horizontalLayout_24">
+         <layout class="QHBoxLayout" name="hLayout_stagger_angle">
           <item>
            <widget class="QLabel" name="label_16">
             <property name="minimumSize">
@@ -464,7 +474,7 @@
          </layout>
         </item>
         <item>
-         <layout class="QHBoxLayout" name="horizontalLayout_23">
+         <layout class="QHBoxLayout" name="hLayout_axial_chord">
           <item>
            <widget class="QLabel" name="label_17">
             <property name="minimumSize">
@@ -487,7 +497,7 @@
          </layout>
         </item>
         <item>
-         <layout class="QHBoxLayout" name="horizontalLayout_22">
+         <layout class="QHBoxLayout" name="hLayout_camber_angle">
           <item>
            <widget class="QLabel" name="label_18">
             <property name="minimumSize">
@@ -510,7 +520,7 @@
          </layout>
         </item>
         <item>
-         <layout class="QHBoxLayout" name="horizontalLayout_21">
+         <layout class="QHBoxLayout" name="hLayout_le_we_ang">
           <item>
            <widget class="QLabel" name="label_19">
             <property name="minimumSize">
@@ -526,14 +536,14 @@
              </size>
             </property>
             <property name="text">
-             <string>leading wedge angle, deg</string>
+             <string>le wedge angle, deg</string>
             </property>
            </widget>
           </item>
          </layout>
         </item>
         <item>
-         <layout class="QHBoxLayout" name="horizontalLayout_20">
+         <layout class="QHBoxLayout" name="hLayout_te_we_ang">
           <item>
            <widget class="QLabel" name="label_20">
             <property name="minimumSize">
@@ -549,14 +559,14 @@
              </size>
             </property>
             <property name="text">
-             <string>trailing wedge angle, deg</string>
+             <string>te wedge angle, deg</string>
             </property>
            </widget>
           </item>
          </layout>
         </item>
         <item>
-         <layout class="QHBoxLayout" name="horizontalLayout_18">
+         <layout class="QHBoxLayout" name="hLayout_value_cmax">
           <item>
            <widget class="QLabel" name="label_21">
             <property name="minimumSize">
@@ -579,7 +589,7 @@
          </layout>
         </item>
         <item>
-         <layout class="QHBoxLayout" name="horizontalLayout_19">
+         <layout class="QHBoxLayout" name="hLayout_throat">
           <item>
            <widget class="QLabel" name="label_22">
             <property name="minimumSize">
@@ -602,7 +612,7 @@
          </layout>
         </item>
         <item>
-         <layout class="QHBoxLayout" name="horizontalLayout_29">
+         <layout class="QHBoxLayout" name="hLayout_solidity">
           <item>
            <widget class="QLabel" name="label_23">
             <property name="minimumSize">
@@ -625,7 +635,7 @@
          </layout>
         </item>
         <item>
-         <layout class="QHBoxLayout" name="horizontalLayout_28">
+         <layout class="QHBoxLayout" name="hLayout_camber_ratio">
           <item>
            <widget class="QLabel" name="label_24">
             <property name="minimumSize">
@@ -648,7 +658,7 @@
          </layout>
         </item>
         <item>
-         <layout class="QHBoxLayout" name="horizontalLayout_27">
+         <layout class="QHBoxLayout" name="hLayout_section_area">
           <item>
            <widget class="QLabel" name="label_25">
             <property name="minimumSize">
