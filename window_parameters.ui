@@ -34,7 +34,7 @@
      <height>521</height>
     </rect>
    </property>
-   <layout class="QHBoxLayout" name="horizontalLayout" stretch="1,1">
+   <layout class="QHBoxLayout" name="horizontalLayout" stretch="0,1">
     <item>
      <layout class="QVBoxLayout" name="verticalLayout">
       <item>
@@ -446,7 +446,11 @@
     <item>
      <layout class="QVBoxLayout" name="verticalLayout_2">
       <item>
-       <layout class="QHBoxLayout" name="hLayout_plot_out"/>
+       <layout class="QHBoxLayout" name="hLayout_plot_out">
+        <property name="sizeConstraint">
+         <enum>QLayout::SetFixedSize</enum>
+        </property>
+       </layout>
       </item>
       <item>
        <layout class="QVBoxLayout" name="verticalLayout_3">

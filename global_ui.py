@@ -1,8 +1,15 @@
+# import libs
 import sys
+import numpy as np
+import matplotlib.pyplot as plt
 
+
+# import part of lib
 from PyQt5 import QtWidgets, QtCore, QtGui
+from matplotlib.backends.backend_qt5agg import FigureCanvasQTAgg as FigureCanvas
 
 
+# user's classes
 from main_window import Ui_MainWindow
 from window_row_type_section_num import Ui_winRowType
 from window_parameters import Ui_windowParameters
@@ -98,7 +105,17 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         self.prmt_window = WindowBladeParameters(self)
         self.setWindowTitle("second window")
         self.setCentralWidget(self.prmt_window)
+        self.prmt_win_add_cells()
+        self.prmt_win_add_graph_plot()
 
+        # add btn to check parameters in cells
+        self.prmt_window.btnCheck.clicked.connect(self.check_btn_params_window)
+
+        # add btn to return first win with num of sections and row type
+        self.prmt_window.btnBack.clicked.connect(self.row_type_section_num_win)
+        self.show()
+
+    def prmt_win_add_cells(self):
         # add cells to input data
         self.inlet_angle_cells = self.create_input_cells(self.number_of_sections)
         self.outlet_angle_cells = self.create_input_cells(self.number_of_sections)
@@ -153,10 +170,21 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
             self.prmt_window.hLayout_camber_ratio.addWidget(self.camber_ratio_cells[i])
             self.prmt_window.hLayout_section_area.addWidget(self.sect_area_cells[i])
 
-        self.prmt_window.btnCheck.clicked.connect(self.check_btn_params_window)
+    # add graphs to win # todo #plug
+    def prmt_win_add_graph_plot(self):
+        self.b2b_canvas = FigureCanvas(plt.Figure(figsize=(10, 5)))
+        self.mer_canvas = FigureCanvas(plt.Figure(figsize=(10, 5)))
+        self.prmt_window.hLayout_plot_out.addWidget(self.b2b_canvas)
+        self.prmt_window.hLayout_plot_out.addWidget(self.mer_canvas)
+        # print("check")
+        # try:
+        #     self.ax_b2b = self.b2b_canvas.figure.subplots()
+        #     self.ax_b2b.grid()
+        # except:
+        #     pass
 
-        self.prmt_window.btnBack.clicked.connect(self.row_type_section_num_win)
-        self.show()
+
+
 
     def try_to_go_params_window(self):
         if self.rtsn_window.lineEditErrorCheck.text() == "true":
